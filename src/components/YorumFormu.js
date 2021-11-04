@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 
-const YORUM_BASLANGIC = { display_name: "", body: "" };
+const YORUM_BASLANGIC = { display_name: "", body: ""};
 
 const YorumFormu = (props) => {
     const [yorum, setYorum] = useState(YORUM_BASLANGIC)
     const handleOnChange = event => {
         setYorum({ ...yorum, [event.target.name]: event.target.value })
+        
     }
 
     return <React.Fragment>

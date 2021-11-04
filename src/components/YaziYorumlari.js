@@ -4,7 +4,9 @@ import YorumListesi from "./YorumListesi";
 
 const YaziYorumlari = (props) => {
     
-    return <React.Fragment><YorumListesi yorumlar={props.yorumlar} /><YorumFormu handleSubmit={props.handleSubmit} /></React.Fragment>
+    return <>
+        <YorumListesi yorumlar={props.yorumlar} /><YorumFormu handleSubmit={props.handleSubmit} />
+        </>
 
 }
 
