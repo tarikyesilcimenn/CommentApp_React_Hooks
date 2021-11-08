@@ -1,9 +1,10 @@
 import React, { useState,useEffect } from "react";
-import { withRouter } from "react-router";
+import { useHistory, useParams} from "react-router";
 import { api } from "../api";
 
 const YaziFormu = (props) => {
-    console.log(props);
+    const {id}=useParams();
+    const history=useHistory();
     const [yazi, setYazi] = useState({ title: '', content: '' });
     const [hata, setHata] = useState('');
 
@@ -16,9 +17,9 @@ const YaziFormu = (props) => {
         setHata('');
         if (props.yazi?.title) {
             //edit islemi
-            api().put(`/posts/${props.match.params.id}`, yazi)
+            api().put(`/posts/${id}`, yazi)
             .then((response) => {
-                props.history.push(`/posts/${props.match.params.id}`)
+                history.push(`/posts/${id}`)
             }
             ).catch(error=>{
                 setHata('Başlık ve yazı içeriği alanları zorunludur.');
@@ -31,7 +32,7 @@ const YaziFormu = (props) => {
     //add islemi
     api().post('/posts', yazi)
         .then(response => {
-            props.history.push('/');
+            history.push('/');
         }).catch(error => {
             setHata('Başlık ve yazı içeriği alanları zorunludur.')
         })}
@@ -68,4 +69,4 @@ return (
 )
 }
 
-export default withRouter(YaziFormu);
+export default YaziFormu;

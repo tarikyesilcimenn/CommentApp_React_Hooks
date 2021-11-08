@@ -23,8 +23,6 @@ const YorumListesi = (props) => {
     const refreshToPage=()=>{
         window.location.reload(false);
     }
-
-
     const editComment = (postId, commentId) => {
         api().put(`posts/${postId}/comments/${commentId}`, { body: newComment.yorum })
             .then(() => {

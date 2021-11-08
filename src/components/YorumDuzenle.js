@@ -6,11 +6,7 @@ const YorumDuzenle = (props) => {
       
     const editComment = (postId, commentId) => {
         api().put(`posts/${postId}/comments/${commentId}`, { body: props.newComment.yorum })
-            .then(() => { 
-                
-                
-                
-            })
+            .then(() => {})
     }
 
     const onInputChange = (event) => {
